@@ -5,9 +5,9 @@ int main(){
     cout<<a<<" "<<b<<endl;
     a = (a+b) - (b = a);
 
-    a = a + b;
-    b = a - b;
-    a = a - b;
+    // a = a + b;
+    // b = a - b;
+    // a = a - b;
 
     int temp = a;
     a = b;
