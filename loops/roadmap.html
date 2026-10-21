@@ -1,0 +1,866 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mission: April 2027 — DSA Master Execution Blueprint</title>
+  <style>
+    @page {
+      size: A4 landscape;
+      margin: 8mm 10mm;
+    }
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #0f172a;
+      background-color: #ffffff;
+      line-height: 1.35;
+      font-size: 10.5px;
+      margin: 0;
+      padding: 0;
+    }
+    .page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+    .header-banner {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-banner h1 {
+      margin: 0 0 3px 0;
+      font-size: 17px;
+      letter-spacing: -0.4px;
+      color: #f8fafc;
+    }
+    .header-banner p {
+      margin: 0;
+      font-size: 10.5px;
+      color: #94a3b8;
+    }
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .meta-card {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 5px;
+      padding: 6px 10px;
+    }
+    .meta-card .label {
+      font-size: 8.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #64748b;
+      margin-bottom: 2px;
+    }
+    .meta-card .value {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+      font-size: 9.5px;
+    }
+    th {
+      background-color: #0f172a;
+      color: #ffffff;
+      text-align: left;
+      padding: 5px 7px;
+      font-weight: 600;
+      font-size: 9px;
+      letter-spacing: 0.3px;
+    }
+    td {
+      padding: 4.5px 7px;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+    }
+    tr:nth-child(even) td {
+      background-color: #f8fafc;
+    }
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #0f172a;
+      border-left: 3px solid #2563eb;
+      padding-left: 6px;
+      margin: 10px 0 5px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-size: 8px;
+      font-weight: 700;
+      margin-right: 2px;
+    }
+    .badge-easy { background-color: #dcfce7; color: #166534; }
+    .badge-med { background-color: #fef3c7; color: #92400e; }
+    .badge-hard { background-color: #fee2e2; color: #991b1b; }
+    .badge-test { background-color: #ede9fe; color: #5b21b6; }
+    .badge-step { background-color: #e0f2fe; color: #0369a1; }
+    .invariant {
+      color: #475569;
+      font-size: 9px;
+      display: block;
+      margin-top: 1.5px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .protocol-box {
+      background-color: #f1f5f9;
+      border-left: 3px solid #0f172a;
+      padding: 6px 10px;
+      margin-bottom: 10px;
+      border-radius: 0 4px 4px 0;
+      font-size: 9px;
+    }
+    .footer {
+      font-size: 8px;
+      color: #94a3b8;
+      text-align: right;
+      margin-top: 6px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PAGE 1: OVERVIEW & CURRICULUM SYLLABUS -->
+  <div class="header-banner">
+    <div>
+      <h1>DSA MASTER EXECUTION ROADMAP (OCT 19 – APR 03)</h1>
+      <p>The Complete 167-Day Algorithmic Curriculum: 231 High-Yield Striver A2Z Problems + 101 Curated LeetCode Drills in C++17</p>
+    </div>
+    <div style="text-align: right;">
+      <span class="badge badge-test" style="font-size: 9.5px; padding: 3px 6px;">BATCH OF 2030</span>
+    </div>
+  </div>
+
+  <div class="meta-grid">
+    <div class="meta-card">
+      <div class="label">Engineer</div>
+      <div class="value">Rishab Kumar Jha</div>
+    </div>
+    <div class="meta-card">
+      <div class="label">Timeline</div>
+      <div class="value">167 Days (Oct 19, 2026 – Apr 03, 2027)</div>
+    </div>
+    <div class="meta-card">
+      <div class="label">Total Problems</div>
+      <div class="value">332 (231 Striver + 101 LeetCode)</div>
+    </div>
+    <div class="meta-card">
+      <div class="label">Primary Stack</div>
+      <div class="value">C++17 (STL & Algorithmic Invariants)</div>
+    </div>
+  </div>
+
+  <div class="protocol-box">
+    <strong>THE MANDATORY 3-TIER OPERATIONAL PROTOCOL:</strong><br>
+    <strong>1. The Daily Problem Drill:</strong> Watch takeuforward intuition (Max 15 min) &rarr; Paper Dry-Run pointer bounds &rarr; Blank Screen C++17 implementation.<br>
+    <strong>2. The LeetCode Stress-Test Rule:</strong> Solve assigned drill under strict 35-min timed constraints. Commit sheet to <code>striver-a2z-dsa</code> and drills to <code>leetcode-solutions</code>.<br>
+    <strong>3. Spaced Repetition (The 1-3-7-21 Rule):</strong> Day +1 trace bounds | Day +3 edge cases | Day +7 recode blank in 15 mins | Day +21 contest variant.
+  </div>
+
+  <div class="section-title">Curriculum Syllabus & Exact Problem Distribution</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 10%;">Step #</th>
+        <th style="width: 26%;">Topic Module</th>
+        <th style="width: 38%;">Core Algorithmic Invariants Mastered</th>
+        <th style="width: 13%;">Striver Count</th>
+        <th style="width: 13%;">LeetCode Drills</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-step">Step 3</span></td>
+        <td><strong>Arrays (Easy, Medium, Hard)</strong></td>
+        <td>Single-Pass Traversal, Kadane's, Dutch National Flag, Moore's Voting, 3Sum/4Sum, In-Place Merging</td>
+        <td>35 Problems</td>
+        <td>14 Drills</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-step">Step 10</span></td>
+        <td><strong>Sliding Window & Two Pointers</strong></td>
+        <td>Fixed Window Prefix/Suffix, Dynamic Window, Frequency Maps, At Most K Partitioning</td>
+        <td>12 Problems</td>
+        <td>8 Drills</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-step">Step 5</span></td>
+        <td><strong>Strings (Basic & Medium)</strong></td>
+        <td>Two-Pointer In-Place Reversals, Character Frequency Hashing, State Machine (atoi), Bucket Sorting</td>
+        <td>12 Problems</td>
+        <td>8 Drills</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-step">Step 4</span></td>
+        <td><strong>Binary Search (1D, 2D, Answer)</strong></td>
+        <td>Logarithmic Search Halving, Monotonic Answer Predicates (Koko, Cows, Books), 2D Staircase Search</td>
+        <td>24 Problems</td>
+        <td>10 Drills</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-step">Step 6</span></td>
+        <td><strong>Linked Lists (Singly, Doubly, Hard)</strong></td>
+        <td>Pointer Memory Manipulation, Floyd's Cycle Tortoise & Hare, Segment Reversals, k-Group Reversals</td>
+        <td>20 Problems</td>
+        <td>8 Drills</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-step">Step 9</span></td>
+        <td><strong>Stacks, Queues & Monotonic</strong></td>
+        <td>LIFO/FIFO Memory Mechanics, Monotonic Decreasing/Increasing Stack (NGE, Histogram), LRU Cache</td>
+        <td>22 Problems</td>
+        <td>9 Drills</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-step">Step 7</span></td>
+        <td><strong>Recursion & Backtracking</strong></td>
+        <td>Take/Don't-Take Branching, Combination Trees, Permutations, 4-Way Grid DFS Backtracking (N-Queens)</td>
+        <td>14 Problems</td>
+        <td>7 Drills</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-step">Step 13</span></td>
+        <td><strong>Binary Trees (Traversals & Views)</strong></td>
+        <td>Recursive DFS, Iterative Stack Traversals, Queue BFS Level-Order, Vertical Hashing Views, LCA</td>
+        <td>24 Problems</td>
+        <td>10 Drills</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-step">Step 14</span></td>
+        <td><strong>Binary Search Trees (BST)</strong></td>
+        <td>BST Invariant (left &lt; root &lt; right), BST Validation, Inorder Successor/Predecessor, BST Iterator</td>
+        <td>12 Problems</td>
+        <td>6 Drills</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-step">Step 11</span></td>
+        <td><strong>Heaps & Priority Queues</strong></td>
+        <td>Heapify Down/Up Mechanics, Top-K Frequent Elements, Two-Heap Running Median Balancing</td>
+        <td>10 Problems</td>
+        <td>6 Drills</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-step">Step 15</span></td>
+        <td><strong>Graphs (BFS/DFS, Topo & Paths)</strong></td>
+        <td>Adjacency Lists, Connected Components, Multi-source BFS, Kahn's Topo Sort, Dijkstra Shortest Path</td>
+        <td>22 Problems</td>
+        <td>9 Drills</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-step">Step 16</span></td>
+        <td><strong>Dynamic Programming (1D, Grids, LCS)</strong></td>
+        <td>Memoization vs Tabulation, Pick/Not-Pick, 2D Grid Boundaries, 0/1 Knapsack, Substrings LCS, LIS</td>
+        <td>24 Problems</td>
+        <td>10 Drills</td>
+      </tr>
+      <tr style="font-weight: 700; background-color: #f1f5f9;">
+        <td>TOTAL</td>
+        <td>12 Comprehensive Modules</td>
+        <td>Peak Algorithmic Preparedness Across All Core Engineering Patterns</td>
+        <td>231 Problems</td>
+        <td>101 Drills</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="footer">Rishab Kumar Jha | Master Blueprint (Adjusted) | Page 1 of 6</div>
+
+  <div class="page-break"></div>
+
+  <!-- PAGE 2: WEEKS 1 - 4 (ARRAYS EASY & MEDIUM) -->
+  <div class="section-title">Phase 1: Linear Arrays, In-Place Scans & Partitions (Weeks 1–4)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 14%;">Date & Day</th>
+        <th style="width: 36%;">Primary Striver A2Z Task & Invariant</th>
+        <th style="width: 25%;">Assigned LeetCode Drill</th>
+        <th style="width: 25%;">Daily Git Output & Revision</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Oct 19, Mon</strong><br>(Day 1)</td>
+        <td>Largest & Second Largest Element<span class="invariant">Single pass scan O(N) time O(1) space</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 485: Max Consecutive Ones</td>
+        <td>striver-a2z-dsa/Step-03/Easy<br><em>Complexity bounds dry-run</em></td>
+      </tr>
+      <tr>
+        <td><strong>Oct 20, Tue</strong><br>(Day 2)</td>
+        <td>Check if Array is Sorted and Rotated<span class="invariant">Count inversion drops (inversions &le; 1)</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 1752: Check Sorted & Rotated</td>
+        <td>leetcode-solutions/LC1752<br><em>Largest/2nd Largest paper trace</em></td>
+      </tr>
+      <tr>
+        <td><strong>Oct 21, Wed</strong><br>(Day 3)</td>
+        <td>Remove Duplicates from Sorted Array<span class="invariant">Two Pointers in-place swap O(N) time O(1) space</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 26: Remove Duplicates</td>
+        <td>Push LC 26 with O(1) proof<br><em>Sorted/Rotated boundary test</em></td>
+      </tr>
+      <tr>
+        <td><strong>Oct 22, Thu</strong><br>(Day 4)</td>
+        <td>Left Rotate Array by One & Rotate by K Places<span class="invariant">Block reversal: rev(0,k-1), rev(k,n-1), rev(0,n-1)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 189: Rotate Array</td>
+        <td>Commit LC 189 in-place<br><em>Two-pointer duplicate removal trace</em></td>
+      </tr>
+      <tr>
+        <td><strong>Oct 23, Fri</strong><br>(Day 5)</td>
+        <td>Move Zeroes to End of Array<span class="invariant">Two Pointers partition (maintain non-zero relative order)</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 283: Move Zeroes</td>
+        <td>Push LC 283 clean solution<br><em>Array rotation 3-reversal dry-run</em></td>
+      </tr>
+      <tr>
+        <td><strong>Oct 24, Sat</strong><br>(Day 6)</td>
+        <td>Linear Search & Union of Two Sorted Arrays<span class="invariant">Two Pointers merge technique O(N+M)</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 268: Missing Number</td>
+        <td>Union of sorted arrays + LC 268<br><em>Zero partition edge cases (all 0s)</em></td>
+      </tr>
+      <tr style="background-color: #f5f3ff;">
+        <td><strong>Oct 25, Sun</strong><br>(Day 7)</td>
+        <td>Single Number (Find Element Appearing Once)<span class="invariant">Bitwise XOR cancellation invariant: x ^ x = 0</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 136: Single Number</td>
+        <td><strong>Week 1 Complete:</strong><br>8 Easy Array patterns locked</td>
+      </tr>
+      <tr>
+        <td><strong>Oct 26, Mon</strong><br>(Day 8)</td>
+        <td>Two Sum (Hash Map vs Two Pointers)<span class="invariant">Hash map complement O(N) vs Two Pointers sorted O(N log N)</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 1: Two Sum</td>
+        <td>Commit LC 1 both approaches<br><em>Single Number XOR logic</em></td>
+      </tr>
+      <tr>
+        <td><strong>Oct 27, Tue</strong><br>(Day 9)</td>
+        <td>Sort Colors (0s, 1s, 2s) — Dutch National Flag<span class="invariant">3 Pointers (low, mid, high) partition O(1) space</span></td>
+        <td><span class="badge badge-med">Med</span> LC 75: Sort Colors</td>
+        <td>Push LC 75 with invariant trace<br><em>Two Sum trade-offs review</em></td>
+      </tr>
+      <tr>
+        <td><strong>Oct 28, Wed</strong><br>(Day 10)</td>
+        <td>Majority Element (&gt; N/2) — Moore’s Voting<span class="invariant">Moore's Voting count cancellation O(N) time O(1) space</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 169: Majority Element</td>
+        <td>Commit LC 169 candidate verification<br><em>DNF 3-pointer partition trace</em></td>
+      </tr>
+      <tr>
+        <td><strong>Oct 29, Thu</strong><br>(Day 11)</td>
+        <td>Maximum Subarray Sum — Kadane’s Algorithm<span class="invariant">Running sum reset at &lt; 0 boundary O(N) single pass</span></td>
+        <td><span class="badge badge-med">Med</span> LC 53: Maximum Subarray</td>
+        <td>Push LC 53 + subarray start/end<br><em>Moore's cancellation proof</em></td>
+      </tr>
+      <tr>
+        <td><strong>Oct 30, Fri</strong><br>(Day 12)</td>
+        <td>Best Time to Buy and Sell Stock (I)<span class="invariant">Running minimum tracking O(N) single pass O(1) space</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 121: Best Time to Buy/Sell</td>
+        <td>Commit LC 121 with O(1) space<br><em>Kadane negative-only test</em></td>
+      </tr>
+      <tr>
+        <td><strong>Oct 31, Sat</strong><br>(Day 13)</td>
+        <td>Rearrange Array Elements by Sign<span class="invariant">Two Pointers alternating positive/negative placement O(N)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 2149: Rearrange Array</td>
+        <td>Push LC 2149 solution<br><em>Stock running min logic</em></td>
+      </tr>
+      <tr style="background-color: #f5f3ff;">
+        <td><strong>Nov 01, Sun</strong><br>(Day 14)</td>
+        <td>Next Permutation<span class="invariant">Lexicographical scan: pivot search, successor swap, suffix reverse</span></td>
+        <td><span class="badge badge-med">Med</span> LC 31: Next Permutation</td>
+        <td><strong>Week 2 Complete:</strong><br>7 Medium Array patterns locked</td>
+      </tr>
+      <tr>
+        <td><strong>Nov 02, Mon</strong><br>(Day 15)</td>
+        <td>Leaders in an Array<span class="invariant">Backward scan maintaining running suffix maximum O(N)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 128: Longest Consec Seq</td>
+        <td>Commit Leaders in Array + LC 128<br><em>Next Permutation 3-step logic</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 03, Tue</strong><br>(Day 16)</td>
+        <td>Longest Consecutive Sequence in Array<span class="invariant">HashSet lookup starting only from sequence origins (x-1 not in set)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 238: Product Except Self</td>
+        <td>Push LC 238 prefix/suffix arrays<br><em>Leaders reverse scan invariant</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 04, Wed</strong><br>(Day 17)</td>
+        <td>Set Matrix Zeroes<span class="invariant">First row and first col as in-place markers O(1) auxiliary space</span></td>
+        <td><span class="badge badge-med">Med</span> LC 73: Set Matrix Zeroes</td>
+        <td>Commit LC 73 with O(1) space<br><em>HashSet boundary checks</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 05, Thu</strong><br>(Day 18)</td>
+        <td>Rotate Matrix / Image by 90° Clockwise<span class="invariant">Matrix Transpose + Row Reversals in-place O(N^2)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 48: Rotate Image</td>
+        <td>Push LC 48 coordinate diagrams<br><em>Set Matrix row0/col0 flags</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 06, Fri</strong><br>(Day 19)</td>
+        <td>Spiral Traversal of Matrix<span class="invariant">4 Boundary pointers (top, bottom, left, right) loop O(N*M)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 54: Spiral Matrix</td>
+        <td>Commit LC 54 1D edge strips<br><em>Matrix transpose vs rotate</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 07, Sat</strong><br>(Day 20)</td>
+        <td>Subarray Sum Equals K<span class="invariant">Prefix Sum map: count occurrences of (prefix_sum - K) in O(N)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 560: Subarray Sum = K</td>
+        <td>Push LC 560 with hash map<br><em>Spiral boundary decrement order</em></td>
+      </tr>
+      <tr style="background-color: #f5f3ff;">
+        <td><strong>Nov 08, Sun</strong><br>(Day 21)</td>
+        <td>Pascal’s Triangle (All 3 Variations)<span class="invariant">Combination formula nCr & row generation O(N^2)</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 118: Pascal's Triangle</td>
+        <td><strong>Week 3 Complete:</strong><br>Matrix & Prefix Sum mastered</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="footer">Rishab Kumar Jha | Master Blueprint (Adjusted) | Page 2 of 6</div>
+
+  <div class="page-break"></div>
+
+  <!-- PAGE 3: WEEKS 4 - 8 (HARD ARRAYS, SLIDING WINDOW & BINARY SEARCH) -->
+  <div class="section-title">Phase 1 (Contd) & Phase 2: Sliding Window & Binary Search (Weeks 4–8)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 14%;">Date & Day</th>
+        <th style="width: 36%;">Primary Striver A2Z Task & Invariant</th>
+        <th style="width: 25%;">Assigned LeetCode Drill</th>
+        <th style="width: 25%;">Daily Git Output & Revision</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Nov 09, Mon</strong><br>(Day 22)</td>
+        <td>Majority Element II (&gt; N/3)<span class="invariant">Extended Moore's: 2 candidates & 2 counters O(1) space</span></td>
+        <td><span class="badge badge-med">Med</span> LC 229: Majority Element II</td>
+        <td>Commit LC 229 verification<br><em>Pascal nCr shortcut formula</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 10, Tue</strong><br>(Day 23)</td>
+        <td>3Sum (Optimal Two Pointers)<span class="invariant">Sort + Fix one element + Two Pointers O(N^2) time O(1) space</span></td>
+        <td><span class="badge badge-med">Med</span> LC 15: 3Sum</td>
+        <td>Push LC 15 duplicate skipping<br><em>Extended Moore 2-candidate balance</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 11, Wed</strong><br>(Day 24)</td>
+        <td>4Sum<span class="invariant">Sort + Fix two elements + Two Pointers O(N^3) time O(1) space</span></td>
+        <td><span class="badge badge-med">Med</span> LC 18: 4Sum</td>
+        <td>Commit LC 18 64-bit overflow guards<br><em>3Sum duplicate skip review</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 12, Thu</strong><br>(Day 25)</td>
+        <td>Merge Overlapping Subintervals<span class="invariant">Sort by interval start time + Linear merge O(N log N)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 56: Merge Intervals</td>
+        <td>Push LC 56 boundary merges<br><em>3Sum/4Sum pointer invariants</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 13, Fri</strong><br>(Day 26)</td>
+        <td>Merge Two Sorted Arrays Without Extra Space<span class="invariant">Gap Method (Shell sort) or end-pointer swap O((N+M) log(N+M))</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 88: Merge Sorted Array</td>
+        <td>Commit LC 88 backwards insertion<br><em>Merge intervals overlap conditions</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 14, Sat</strong><br>(Day 27)</td>
+        <td>Find Missing and Repeating Number<span class="invariant">Math sum differences or Bitwise XOR bucket separation</span></td>
+        <td><span class="badge badge-hard">Hard</span> LC 41: First Missing Positive</td>
+        <td>Push LC 41 in-place hash<br><em>Gap method partition arithmetic</em></td>
+      </tr>
+      <tr style="background-color: #fef2f2;">
+        <td><strong>Nov 15, Sun</strong><br>(Day 28)</td>
+        <td><strong>CHECKPOINT 1: ARRAYS COMPREHENSIVE DRILL</strong><span class="invariant">Timed Drill: Solve 2 unseen Array Mediums under 70 mins</span></td>
+        <td><span class="badge badge-test">CHECK</span> LC 11: Container Most Water & LC 152: Max Product</td>
+        <td><strong>Verify Checkpoint 1 Complete:</strong><br>35 Striver + 14 LC Solved</td>
+      </tr>
+      <tr>
+        <td><strong>Nov 16, Mon</strong><br>(Day 29)</td>
+        <td>Maximum Points You Can Obtain from Cards<span class="invariant">Fixed Window sliding prefix/suffix sum of size (N-K)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 1423: Max Points Cards</td>
+        <td>Commit LC 1423 circular handling<br><em>LC 11 & LC 152 review</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 17, Tue</strong><br>(Day 30)</td>
+        <td>Longest Substring Without Repeating Characters<span class="invariant">Dynamic Window with last-seen character index map O(N)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 3: Longest Substring</td>
+        <td>Push LC 3 optimal map jump<br><em>Fixed window edge bounds</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 18, Wed</strong><br>(Day 31)</td>
+        <td>Max Consecutive Ones III (At Most K Zeroes)<span class="invariant">Expand right, contract left when zero_count &gt; K</span></td>
+        <td><span class="badge badge-med">Med</span> LC 1004: Max Ones III</td>
+        <td>Commit LC 1004 single-pass<br><em>Last-seen index jump proof</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 19, Thu</strong><br>(Day 32)</td>
+        <td>Fruit Into Baskets (At Most 2 Distinct Elements)<span class="invariant">Dynamic Window tracking frequency map with size &le; 2</span></td>
+        <td><span class="badge badge-med">Med</span> LC 904: Fruit Baskets</td>
+        <td>Push LC 904 frequency pruning<br><em>Zero-count contraction condition</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 20, Fri</strong><br>(Day 33)</td>
+        <td>Longest Repeating Character Replacement<span class="invariant">Window length - max_frequency &le; K invariant O(N)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 424: Repeating Char</td>
+        <td>Commit LC 424 non-shrinking<br><em>2 distinct elements bounds</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 21, Sat</strong><br>(Day 34)</td>
+        <td>Binary Subarrays With Sum K & Nice Subarrays<span class="invariant">Prefix counting trick: count(at_most_k) - count(at_most_k-1)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 930: Binary Subarrays</td>
+        <td>Push LC 930 + LC 1248<br><em>max_freq validity invariant</em></td>
+      </tr>
+      <tr style="background-color: #f5f3ff;">
+        <td><strong>Nov 22, Sun</strong><br>(Day 35)</td>
+        <td>Minimum Window Substring (Hard Pattern)<span class="invariant">Frequency hash map + remaining character counter O(N)</span></td>
+        <td><span class="badge badge-hard">Hard</span> LC 76: Min Window Substr</td>
+        <td><strong>Week 5 Complete:</strong><br>Sliding Window Mastered (12+8)</td>
+      </tr>
+      <tr>
+        <td><strong>Nov 23, Mon</strong><br>(Day 36)</td>
+        <td>Remove Outermost Parentheses & Reverse Words<span class="invariant">Open counter balance O(N); In-place word token reversal</span></td>
+        <td><span class="badge badge-easy">E/M</span> LC 1021 & LC 151</td>
+        <td>Commit LC 151 in-place tokens<br><em>LC 76 Minimum Window trace</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 24, Tue</strong><br>(Day 37)</td>
+        <td>Largest Odd Number in String & Longest Common Prefix<span class="invariant">Linear scan from end; Character-by-character vertical scan</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 1903 & LC 14</td>
+        <td>Push LC 14 horizontal vs vertical<br><em>Word reversal space-handling</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 25, Wed</strong><br>(Day 38)</td>
+        <td>Isomorphic Strings & Valid Anagram<span class="invariant">Dual character mapping arrays O(N) time O(1) space</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 205 & LC 242</td>
+        <td>Commit LC 205 & LC 242 arrays<br><em>Prefix matching string logic</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 26, Thu</strong><br>(Day 39)</td>
+        <td>Sort Characters By Frequency<span class="invariant">Hash map + Bucket Sort / Max-Heap O(N) time</span></td>
+        <td><span class="badge badge-med">Med</span> LC 451: Sort Frequency</td>
+        <td>Push LC 451 bucket sort<br><em>Character frequency hashing</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 27, Fri</strong><br>(Day 40)</td>
+        <td>Maximum Nesting Depth & Roman to Integer<span class="invariant">Stack depth counter; Subtractive Roman rules (IV, IX, XL, XC)</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 1614 & LC 13</td>
+        <td>Commit LC 13 subtractive lookahead<br><em>Bucket sort vs heap trade-off</em></td>
+      </tr>
+      <tr>
+        <td><strong>Nov 28, Sat</strong><br>(Day 41)</td>
+        <td>String to Integer (atoi)<span class="invariant">State machine: whitespace trim, sign flag, 32-bit overflow</span></td>
+        <td><span class="badge badge-med">Med</span> LC 8: String to Integer</td>
+        <td>Push LC 8 INT_MAX/MIN guards<br><em>Roman subtractive edge cases</em></td>
+      </tr>
+      <tr style="background-color: #f5f3ff;">
+        <td><strong>Nov 29, Sun</strong><br>(Day 42)</td>
+        <td>Count Number of Substrings with K Distinct Chars<span class="invariant">Sliding window formula: f(K) - f(K-1) O(N)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 1358: Substrings All 3</td>
+        <td><strong>Week 6 Complete:</strong><br>Strings Mastered (12+8)</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="footer">Rishab Kumar Jha | Master Blueprint (Adjusted) | Page 3 of 6</div>
+
+  <div class="page-break"></div>
+
+  <!-- PAGE 4: WEEKS 7 - 12 (BINARY SEARCH, LINKED LISTS & STACKS) -->
+  <div class="section-title">Phase 2 & Phase 3: Binary Search, Linked Lists & Stacks (Weeks 7–12)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 14%;">Date & Day</th>
+        <th style="width: 36%;">Primary Striver A2Z Task & Invariant</th>
+        <th style="width: 25%;">Assigned LeetCode Drill</th>
+        <th style="width: 25%;">Daily Git Output & Revision</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Nov 30, Mon</strong><br>(Day 43)</td>
+        <td>Binary Search Standard & Lower/Upper Bound<span class="invariant">Search space halving invariant O(log N): low + (high-low)/2</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 704 & LC 35</td>
+        <td>Commit LC 704 & LC 35 templates<br><em>Sliding window formula review</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 01, Tue</strong><br>(Day 44)</td>
+        <td>First and Last Position of Element in Sorted Array<span class="invariant">Dual BS calls: find first (high=mid-1) & last (low=mid+1)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 34: First/Last Position</td>
+        <td>Push LC 34 boundary proofs<br><em>Lower/Upper Bound invariants</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 02, Wed</strong><br>(Day 45)</td>
+        <td>Count Occurrences in Sorted Array<span class="invariant">Formula: (last_occurrence - first_occurrence + 1) via BS</span></td>
+        <td><span class="badge badge-med">Med</span> LC 852: Peak Mountain</td>
+        <td>Commit Peak Index monotonic scan<br><em>Dual BS convergence trace</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 03, Thu</strong><br>(Day 46)</td>
+        <td>Search in Rotated Sorted Array I (Unique Elements)<span class="invariant">Identify which half is sorted (left or right) O(log N)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 33: Search Rotated</td>
+        <td>Push LC 33 sorted half decision<br><em>Mountain peak convergence</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 04, Fri</strong><br>(Day 47)</td>
+        <td>Search in Rotated Sorted Array II (Duplicates)<span class="invariant">Shrink space when arr[low] == arr[mid] == arr[high]</span></td>
+        <td><span class="badge badge-med">Med</span> LC 81: Search Rotated II</td>
+        <td>Commit LC 81 duplicate shrinking<br><em>Rotated I decision trace</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 05, Sat</strong><br>(Day 48)</td>
+        <td>Find Minimum in Rotated Sorted Array<span class="invariant">Compare mid with high to eliminate sorted half O(log N)</span></td>
+        <td><span class="badge badge-med">Med</span> LC 153: Find Min Rotated</td>
+        <td>Push LC 153 boundary tests<br><em>Duplicate shrinking condition</em></td>
+      </tr>
+      <tr style="background-color: #f5f3ff;">
+        <td><strong>Dec 06, Sun</strong><br>(Day 49)</td>
+        <td>Find Peak Element in 1D Array<span class="invariant">Monotonic slope elimination: arr[mid] &lt; arr[mid+1] look right</span></td>
+        <td><span class="badge badge-med">Med</span> LC 162: Find Peak Element</td>
+        <td><strong>Week 7 Complete:</strong><br>Core 1D Binary Search Conquered</td>
+      </tr>
+      <tr>
+        <td><strong>Dec 07, Mon</strong><br>(Day 50)</td>
+        <td>Square Root & Nth Root of Integer<span class="invariant">Monotonic predicate search on [1, N] O(log N)</span></td>
+        <td><span class="badge badge-easy">Easy</span> LC 69: Sqrt(x)</td>
+        <td>Commit Sqrt(x) 64-bit cast<br><em>Peak element slope invariant</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 08, Tue</strong><br>(Day 51)</td>
+        <td>Koko Eating Bananas<span class="invariant">BS on speed: hours_needed(speed) &le; H monotonic function</span></td>
+        <td><span class="badge badge-med">Med</span> LC 875: Koko Bananas</td>
+        <td>Push LC 875 range [1, max(piles)]<br><em>Monotonic predicate concept</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 09, Wed</strong><br>(Day 52)</td>
+        <td>Minimum Days to Make M Bouquets<span class="invariant">BS on days: greedy bloom count check O(N log(max_day))</span></td>
+        <td><span class="badge badge-med">Med</span> LC 1482: Min Days Bouquets</td>
+        <td>Commit LC 1482 guard (M*K &gt; N)<br><em>Koko eating speed bounds</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 10, Thu</strong><br>(Day 53)</td>
+        <td>Find Smallest Divisor Given a Threshold<span class="invariant">BS on divisor: sum(ceil(nums[i]/d)) &le; threshold</span></td>
+        <td><span class="badge badge-med">Med</span> LC 1283: Smallest Divisor</td>
+        <td>Push LC 1283 ceil division math<br><em>Bouquets greedy check</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 11, Fri</strong><br>(Day 54)</td>
+        <td>Capacity to Ship Packages Within D Days<span class="invariant">BS on capacity: check feasible partitions &le; D days</span></td>
+        <td><span class="badge badge-med">Med</span> LC 1011: Capacity Ship</td>
+        <td>Commit LC 1011 range [max, sum]<br><em>Ceiling division monotonicity</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 12, Sat</strong><br>(Day 55)</td>
+        <td>Aggressive Cows (Allocation Pattern)<span class="invariant">Maximize minimum distance: place cows greedily at dist &ge; mid</span></td>
+        <td><span class="badge badge-med">Med</span> SpOJ / GfG: Cows</td>
+        <td>Push Aggressive Cows dry-run<br><em>Ship packages partition</em></td>
+      </tr>
+      <tr style="background-color: #f5f3ff;">
+        <td><strong>Dec 13, Sun</strong><br>(Day 56)</td>
+        <td>Book Allocation Problem / Split Array Largest Sum<span class="invariant">Minimize maximum allocation: greedy page count check</span></td>
+        <td><span class="badge badge-hard">Hard</span> LC 410: Split Array</td>
+        <td><strong>Week 8 Complete:</strong><br>BS on Answer Space locked</td>
+      </tr>
+      <tr>
+        <td><strong>Dec 14, Mon</strong><br>(Day 57)</td>
+        <td>Painter's Partition & Kth Missing Positive Number<span class="invariant">Equivalence to Book Allocation; BS on missing counts</span></td>
+        <td><span class="badge badge-easy">E/M</span> LC 1539: Kth Missing</td>
+        <td>Commit LC 1539 O(log N) formula<br><em>Split Array greedy check</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 15, Tue</strong><br>(Day 58)</td>
+        <td>Search in a 2D Matrix (Fully Sorted Row-by-Row)<span class="invariant">Virtual 1D array index mapping: row=mid/m, col=mid%m</span></td>
+        <td><span class="badge badge-med">Med</span> LC 74: Search 2D Matrix</td>
+        <td>Push LC 74 coordinate mapping<br><em>Missing count formula dry-run</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 16, Wed</strong><br>(Day 59)</td>
+        <td>Search in Row-wise and Column-wise Sorted Matrix<span class="invariant">Staircase search: start top-right corner, move left/down</span></td>
+        <td><span class="badge badge-med">Med</span> LC 240: Search 2D II</td>
+        <td>Commit LC 240 boundary traversal<br><em>Flattened 2D index formulas</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 17, Thu</strong><br>(Day 60)</td>
+        <td>Find Peak Element in 2D Matrix<span class="invariant">BS on columns: find max in column, eliminate left/right</span></td>
+        <td><span class="badge badge-med">Med</span> LC 1901: Peak 2D</td>
+        <td>Push LC 1901 column maximum<br><em>Staircase search directional rules</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 18, Fri</strong><br>(Day 61)</td>
+        <td>Median of Two Sorted Arrays<span class="invariant">BS on partition cut: L1&le;R2 && L2&le;R1 O(log(min(N,M)))</span></td>
+        <td><span class="badge badge-hard">Hard</span> LC 4: Median Sorted</td>
+        <td>Commit LC 4 partition trace<br><em>Peak element 2D column trace</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 19, Sat</strong><br>(Day 62)</td>
+        <td>K-th Element of Two Sorted Arrays<span class="invariant">Partition cut with exactly K elements in left half</span></td>
+        <td><span class="badge badge-med">Med</span> GfG: K-th Element</td>
+        <td>Push K-th element solution<br><em>Median partition balance trace</em></td>
+      </tr>
+      <tr style="background-color: #fef2f2;">
+        <td><strong>Dec 20, Sun</strong><br>(Day 63)</td>
+        <td><strong>CHECKPOINT 2: BINARY SEARCH FULL DRILL</strong><span class="invariant">Timed Drill: Solve 2 unseen BS problems under 70 mins</span></td>
+        <td><span class="badge badge-test">CHECK</span> LC 540 & LC 875 Speed Drill</td>
+        <td><strong>Verify Checkpoint 2 Complete:</strong><br>24 Striver + 10 LC Solved</td>
+      </tr>
+      <tr>
+        <td><strong>Dec 21 – Dec 27</strong><br>(Days 64–70)</td>
+        <td><strong>Linked List Core & Fast/Slow Pointers</strong><br>Singly/Doubly LL Traversal, In-Place Reversal, Middle of LL, Floyd's Cycle Detection, Loop Start Point & Length</td>
+        <td><span class="badge badge-easy">E/M</span> LC 237, LC 206, LC 876, LC 141, LC 142</td>
+        <td>striver-a2z-dsa/Step-06/LinkedList<br><em>Floyd's proof: 2d = d + k*C</em></td>
+      </tr>
+      <tr>
+        <td><strong>Dec 28 – Jan 03</strong><br>(Days 71–77)</td>
+        <td><strong>Linked List Invariants & k-Groups</strong><br>Palindrome LL, Odd Even LL, Remove Nth Node, Add Two Numbers, Merge 2 Lists, Reverse k-Group, Copy List Random</td>
+        <td><span class="badge badge-med">M/H</span> LC 234, LC 328, LC 19, LC 2, LC 21, LC 25, LC 61, LC 138</td>
+        <td>striver-a2z-dsa/Step-06/LL-Hard<br><em>k-Group segment connection bookkeeping</em></td>
+      </tr>
+      <tr>
+        <td><strong>Jan 04 – Jan 10</strong><br>(Days 78–84)</td>
+        <td><strong>Stacks & Queues Foundations</strong><br>Stack/Queue Implementations, Valid Parentheses, Min Stack O(1), Infix/Postfix Conversions, Evaluate RPN</td>
+        <td><span class="badge badge-easy">E/M</span> LC 225, LC 232, LC 20, LC 155, LC 150</td>
+        <td>striver-a2z-dsa/Step-09/StackQueue<br><em>Min Stack encoding: 2*val - min</em></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="footer">Rishab Kumar Jha | Master Blueprint (Adjusted) | Page 4 of 6</div>
+
+  <div class="page-break"></div>
+
+  <!-- PAGE 5: WEEKS 13 - 18 (MONOTONIC STACKS, TREES & GRAPHS) -->
+  <div class="section-title">Phase 3 & Phase 4: Monotonic Stacks, Recursion, Trees & Heaps (Weeks 13–18)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 14%;">Date & Day</th>
+        <th style="width: 36%;">Primary Striver A2Z Task & Invariant</th>
+        <th style="width: 25%;">Assigned LeetCode Drill</th>
+        <th style="width: 25%;">Daily Git Output & Revision</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Jan 11 – Jan 17</strong><br>(Days 85–91)</td>
+        <td><strong>Monotonic Stack Patterns (Gold Standard)</strong><br>Next Greater Element I & II, Next Smaller Element, Daily Temps, Trapping Rain Water, Histogram, Maximal Rect, LRU Cache</td>
+        <td><span class="badge badge-hard">M/H</span> LC 496, LC 503, LC 739, LC 42, LC 84, LC 85, LC 146</td>
+        <td>striver-a2z-dsa/Step-09/MonoStack<br><em>Single-pass histogram index optimization</em></td>
+      </tr>
+      <tr>
+        <td><strong>Jan 18 – Jan 23</strong><br>(Days 92–97)</td>
+        <td><strong>Recursion & Backtracking Foundations</strong><br>Subsequences Power Set, Combination Sum I & II, Subset Sum I & II, Word Search in Grid, N-Queens Problem</td>
+        <td><span class="badge badge-med">M/H</span> LC 78, LC 39, LC 40, LC 90, LC 79, LC 51</td>
+        <td>striver-a2z-dsa/Step-07/Recursion<br><em>Pick/Not-pick branching state trees</em></td>
+      </tr>
+      <tr style="background-color: #fef2f2;">
+        <td><strong>Jan 24, Sun</strong><br>(Day 98)</td>
+        <td><strong>CHECKPOINT 3: STACKS, LL & RECURSION DRILL</strong><span class="invariant">Timed Drill: Solve 2 unseen Stack/Backtracking problems</span></td>
+        <td><span class="badge badge-test">CHECK</span> LC 901: Stock Span & LC 46: Permutations</td>
+        <td><strong>Verify Checkpoint 3 Complete:</strong><br>22 Striver + 9 LC Solved</td>
+      </tr>
+      <tr>
+        <td><strong>Jan 25 – Jan 31</strong><br>(Days 99–105)</td>
+        <td><strong>Binary Trees: Traversals & Height Properties</strong><br>Tree Struct, DFS Pre/In/Post (Recursive & Iterative), BFS Level-Order, Maximum Depth, Balanced Tree, Diameter</td>
+        <td><span class="badge badge-easy">E/M</span> LC 144, LC 94, LC 145, LC 102, LC 104, LC 110, LC 543</td>
+        <td>striver-a2z-dsa/Step-13/BinaryTrees<br><em>Height reference passing optimizations</em></td>
+      </tr>
+      <tr>
+        <td><strong>Feb 01 – Feb 07</strong><br>(Days 106–112)</td>
+        <td><strong>Binary Trees: Views, LCA & Construction</strong><br>Max Path Sum, Same/Symmetric Tree, Top/Bottom Views, Right/Left Views, Lowest Common Ancestor, Pre/Inorder Tree, Serialize/Deserialize</td>
+        <td><span class="badge badge-hard">M/H</span> LC 124, LC 100, LC 101, LC 199, LC 236, LC 105, LC 297</td>
+        <td>striver-a2z-dsa/Step-13/BT-Views<br><em>Vertical line coordinate hashing (line=x)</em></td>
+      </tr>
+      <tr>
+        <td><strong>Feb 08 – Feb 14</strong><br>(Days 113–119)</td>
+        <td><strong>Binary Search Trees (BST) & Heaps</strong><br>BST Search/Insert/Delete, Validate BST, Kth Smallest, BST LCA, Two Sum BST, Heapify, Top K Frequent, Merge K Lists, Median Stream</td>
+        <td><span class="badge badge-med">M/H</span> LC 700, LC 701, LC 450, LC 98, LC 230, LC 235, LC 215, LC 347, LC 23, LC 295</td>
+        <td>striver-a2z-dsa/Step-11/14-BST-Heap<br><em>Two-heap running median balance</em></td>
+      </tr>
+      <tr>
+        <td><strong>Feb 15 – Feb 20</strong><br>(Days 120–125)</td>
+        <td><strong>Graph Representations, BFS/DFS & Cycles</strong><br>Adjacency List, BFS, DFS, Number of Islands, Provinces, Rotting Oranges (Multi-Source), Undirected Cycle Detection, Bipartite Graph</td>
+        <td><span class="badge badge-med">Med</span> LC 200, LC 547, LC 994, LC 785</td>
+        <td>striver-a2z-dsa/Step-15/Graphs<br><em>Multi-source simultaneous BFS spread</em></td>
+      </tr>
+      <tr style="background-color: #fef2f2;">
+        <td><strong>Feb 21, Sun</strong><br>(Day 126)</td>
+        <td><strong>CHECKPOINT 4: TREES, BST & GRAPH BASICS</strong><span class="invariant">Timed Drill: Solve 2 unseen Tree/Graph problems under 70 mins</span></td>
+        <td><span class="badge badge-test">CHECK</span> LC 572: Subtree & LC 695: Max Area Island</td>
+        <td><strong>Verify Checkpoint 4 Complete:</strong><br>24 Trees + 12 BST + 10 Heaps</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="footer">Rishab Kumar Jha | Master Blueprint (Adjusted) | Page 5 of 6</div>
+
+  <div class="page-break"></div>
+
+  <!-- PAGE 6: WEEKS 19 - 24 (SHORTEST PATH, DP & FINAL SIMULATION) -->
+  <div class="section-title">Phase 5: Shortest Path, Dynamic Programming & Final Polish (Weeks 19–24)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 14%;">Date & Day</th>
+        <th style="width: 36%;">Primary Striver A2Z Task & Invariant</th>
+        <th style="width: 25%;">Assigned LeetCode Drill</th>
+        <th style="width: 25%;">Daily Git Output & Revision</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Feb 22 – Feb 28</strong><br>(Days 127–133)</td>
+        <td><strong>Topological Sort & Shortest Path Algorithms</strong><br>Kahn's Algo, Course Schedule I & II, Safe States, Unit Weights BFS, Dijkstra's Algorithm, Cheapest Flights K Stops, Bellman-Ford</td>
+        <td><span class="badge badge-med">Med</span> LC 207, LC 210, LC 802, LC 743, LC 787</td>
+        <td>striver-a2z-dsa/Step-15/ShortestPath<br><em>Dijkstra min-heap relaxation O(E log V)</em></td>
+      </tr>
+      <tr>
+        <td><strong>Mar 01 – Mar 07</strong><br>(Days 134–140)</td>
+        <td><strong>Dynamic Programming: 1D DP & 2D Grids</strong><br>Climbing Stairs, Frog Jump, House Robber I & II, Ninja's Training, Grid Unique Paths I & II, Minimum Path Sum, Triangle, Falling Path</td>
+        <td><span class="badge badge-med">E/M</span> LC 70, LC 198, LC 213, LC 62, LC 63, LC 64, LC 120, LC 931</td>
+        <td>striver-a2z-dsa/Step-16/DP-Grids<br><em>dp[i][j] space-optimized 1D row array</em></td>
+      </tr>
+      <tr>
+        <td><strong>Mar 08 – Mar 14</strong><br>(Days 141–147)</td>
+        <td><strong>DP: Subsequences, Strings & Knapsack</strong><br>Subset Sum = Target, Partition Equal Subset, 0/1 Knapsack, Coin Change I & II, LCS, Longest Palindromic Subseq, Edit Distance, LIS</td>
+        <td><span class="badge badge-hard">M/H</span> LC 416, LC 322, LC 518, LC 1143, LC 516, LC 72, LC 300</td>
+        <td>striver-a2z-dsa/Step-16/DP-Strings<br><em>Edit Distance 3-operation matrix</em></td>
+      </tr>
+      <tr>
+        <td><strong>Mar 15 – Mar 21</strong><br>(Days 148–154)</td>
+        <td><strong>FAANG Interview Simulations (Timed 45-Min Screens)</strong><br>Sim 1 (Arrays/Two Pointers) &rarr; Sim 2 (BS/Strings) &rarr; Sim 3 (LL/Stacks) &rarr; Sim 4 (Trees) &rarr; Sim 5 (Graphs) &rarr; Sim 6 (DP) &rarr; Weak-Spot Elimination</td>
+        <td><span class="badge badge-test">FAANG</span> LC 15, LC 56, LC 33, LC 3, LC 146, LC 84, LC 236, LC 124, LC 200, LC 743, LC 1143, LC 72</td>
+        <td><strong>Interview Tracker Updated:</strong><br>Log edge cases, bugs & runtime trade-offs</td>
+      </tr>
+      <tr>
+        <td><strong>Mar 22 – Mar 28</strong><br>(Days 155–161)</td>
+        <td><strong>Live Contests, Upsolving & Speed Optimization</strong><br>Timed Virtual Contest 1 & 2 &rarr; Upsolving Q3/Q4 &rarr; Rapid-Fire Pattern Drills (Arrays, Trees, Graphs, DP &lt;60s recall) &rarr; Technical Audit</td>
+        <td><span class="badge badge-test">SPEED</span> LeetCode Virtual Weekly & Biweekly Contests</td>
+        <td><strong>Peak Sharpness:</strong><br>Instantaneous invariant recognition on blank editor</td>
+      </tr>
+      <tr>
+        <td><strong>Mar 29 – Apr 02</strong><br>(Days 162–166)</td>
+        <td><strong>Final Fluidity, Verbal Practice & Repository Audit</strong><br>Light solving (LC 238, LC 128, LC 104, LC 200) &rarr; GitHub cleanups with READMEs &rarr; Verbalizing time/space out loud &rarr; Archival</td>
+        <td><span class="badge badge-easy">EASY</span> Zero-burnout fluidity check</td>
+        <td>Audit commit history across striver-a2z-dsa & leetcode-solutions</td>
+      </tr>
+      <tr style="background-color: #dcfce7; font-weight: 700;">
+        <td><strong>Apr 03, Sat</strong><br>(Day 167)</td>
+        <td><strong>TARGET DATE: APRIL 03 DSA MASTERY ACHIEVED</strong><span class="invariant">231 Striver Problems + 101 Curated LeetCode Drills Mastered in C++</span></td>
+        <td><span class="badge badge-easy" style="font-size: 9px; padding: 2px 6px;">332 SOLVED</span></td>
+        <td><strong>MISSION COMPLETE:</strong><br>Full Algorithmic Preparedness Locked In</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="footer">Rishab Kumar Jha | Master Blueprint (Adjusted) | Page 6 of 6 — Algorithmic Mastery Locked In</div>
+
+</body>
+</html>
